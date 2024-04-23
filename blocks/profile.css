@@ -1,0 +1,132 @@
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 40px 5% 0;
+
+}
+
+.profile__info {
+    display: grid;
+    grid-template-areas: 
+    "title button"
+    "description description"
+    ;
+    grid-template-columns: minmax(auto, 373px) auto;
+    gap: 7px 18px;
+    margin-right: 20px;
+}
+
+.profile__edit-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.profile__edit-button {
+    background: transparent url(../images/edit-icon.svg) center no-repeat;
+    height: 24px;
+    width: 24px;
+    grid-area: button;
+    border: 1px solid white;
+}
+
+.profile__add-button {
+    background: transparent url(../images/Plus.svg) center no-repeat;
+    width: 150px;
+    height: 50px;
+    margin-left: auto;
+    border: 2px solid white;
+}
+
+.profile__title {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 42px;
+    line-height: 1.14;
+    font-weight: 500;
+    grid-area: title;
+    margin: 0;
+    max-width: 373px;
+    white-space: nowrap;
+}
+
+.profile__description {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 400;
+    grid-area: description;
+    margin: 0;
+}
+
+.profile__image {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: center;
+    background-position: center;
+    margin-right: 30px;
+
+}
+
+@media screen and (max-width: 580px) {
+    .profile {
+        flex-direction: column;
+        max-width: 282px;
+        padding: 40px 0;
+    }
+
+    .profile__image{
+        margin: 0;
+    }
+    .profile__title {
+        font-size: 22px;
+        line-height: 1.2;
+        justify-content: center;
+        
+    }
+    .profile__info {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 30px 19px 36px;
+    }
+    .profile__description {
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile__add-button{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 715px) {
+   
+    .profile {
+        box-sizing: border-box;   
+    }
+
+    .profile__image{
+        margin: 0;
+    }
+    .profile__title {
+        display: flex;
+        justify-content: left;
+        font-size: 24px;
+        line-height: 1.2;
+    }
+    .profile__info {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        margin: 30px 19px 36px;
+    }
+    .profile__description {
+        width: 100%;
+    }
+
+    .profile__add-button{
+        margin: 0;
+        max-width: 100%;
+    }
+}
