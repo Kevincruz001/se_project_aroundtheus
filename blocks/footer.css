@@ -11,18 +11,24 @@
     font-size: 18px;
     line-height: 1.2;
     font-weight: 400;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 715px) {
     .footer {
         margin-top: 48px;
+        margin-bottom: 36px;
     }
     .footer__copyright {
         margin-left: 19px;
     }
 }
+
 @media screen and (max-width: 580px) {
     
+.footer {
+    margin-bottom: 36px;
+}
     .footer__copyright {
         font-size: 14px;
     }

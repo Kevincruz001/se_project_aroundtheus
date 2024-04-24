@@ -2,9 +2,15 @@
     margin-top: 45px;
     min-height: 75px;
     width: 100%;
-    border-bottom: 1px solid #545454;
-    
+    border-bottom: 1px solid rgb(84 84 84 / .7);
 }
+
+@media screen and (max-width: 715px) {
+    .header__logo {
+    margin-left: 27px;
+    }
+}
+
 @media screen and (max-width: 580px) {
     .header {
         margin-top: 28px;
@@ -13,11 +19,5 @@
     .header__logo {
         width: 126px;
         height: 24px;
-    }
-}
-
-@media screen and (max-width: 715px) {
-    .header__logo {
-    margin-left: 27px;
     }
 }
