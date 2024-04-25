@@ -22,7 +22,7 @@ Good luck and have fun!
 
 **Link to Github Project**
 
-https://github.com/Kevincruz001/se_project_aroundtheus
+https://kevincruz001.github.io/se_project_aroundtheus/
 
 **Link to Video Discussion on Adapative Web Design**
 
