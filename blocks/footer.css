@@ -2,7 +2,7 @@
     width: 100%;
     max-width: 880px;
     text-align: left;
-    margin: 67px auto 0;
+    margin: 67px auto 60px;
 }
 
 .footer__copyright {
@@ -17,7 +17,6 @@
 @media screen and (max-width: 715px) {
     .footer {
         margin-top: 48px;
-        margin-bottom: 36px;
     }
     .footer__copyright {
         margin-left: 19px;

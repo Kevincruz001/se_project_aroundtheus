@@ -70,9 +70,3 @@
         padding-top: 36px;
     }
 }
-
-@media screen and (max-width: 580px) {
-    .cards {
-        padding-top: 36px;
-    }
-}
