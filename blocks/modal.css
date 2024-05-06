@@ -1,0 +1,112 @@
+.modal {
+    display:none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 0 19px;
+}
+
+.modal_opened {
+    display: flex;
+
+}
+
+.modal__container {
+    position: relative;
+    padding: 36px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    max-height: 258px;
+    max-width: 358px;
+    width: 100%;
+}
+
+.modal__close {
+    background-color: transparent;
+    background-image: url("../images/Close-Icon.svg");
+    border: none;
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    cursor: pointer;
+    bottom: calc(100% + 5px);
+    left: calc(100% + 5px);
+    
+}
+
+.modal__close:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+.modal__form {
+    display: flex; 
+    flex-direction: column;
+    gap: 30px;
+}
+
+.modal__form__input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-width: 1px;
+    height: 27px;
+    padding: 0;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+.modal__heading {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: black;
+    margin-bottom: 54px;
+    margin-top: 0;
+}
+
+.modal__button {
+    height: 50px;
+    background-color: black;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 18px;
+    color: white;
+    margin-top: 18px;
+    padding: 0;
+    border:none;
+}
+
+.modal__button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+
+}
+
+@media screen and (max-width: 580px) {
+    .modal__close {
+       left: calc(100% - 26px);
+       bottom: calc(100% + 19px);
+       height: 26px;
+       width: 26px;
+    }
+    .modal__heading {
+        margin-bottom: 75px;
+        font-size: 18px;
+    }
+    .modal__button {
+        font-size: 14px;
+        height: 46px;
+    }
+}
