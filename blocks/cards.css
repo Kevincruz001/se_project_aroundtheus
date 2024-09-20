@@ -17,6 +17,12 @@
     border-radius: 10px;
     list-style: none;
     overflow: hidden;
+    position: relative;
+}
+
+.cards__delete-button {
+    display:flex;
+    position:absolute;
 }
 
 .cards__like-button {
@@ -27,10 +33,30 @@
     padding: 0;
 }
 
+.cards__like-button_active {
+    background: url(../images/like-active.svg);
+}
+
 .cards__like-button:hover {
 
     cursor: pointer;
     opacity: .5;
+}
+
+.cards__delete-button {
+    position: absolute;
+    top: 18px; 
+    right: 15px; 
+    background: url(../images/Trash.svg);
+    border: none;
+    width: 18px;
+    height: 19px;
+
+}
+
+.cards__delete-button:hover {
+    cursor: pointer;
+    background: url("../images/Trash-hover.svg")
 }
 
 .cards__image {
@@ -38,6 +64,10 @@
     height: 282px;
     object-fit: cover;
 
+}
+
+.cards__image:hover {
+    cursor: pointer;
 }
 
 .cards__description {

@@ -46,6 +46,7 @@
         <p class="footer__copyright">&copy; 2024 Kevin Cruz</p>
       </footer>
     </div>
+    <!-- Edit Modal -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button class="modal__close" id="profile-edit-button-close"></button>
@@ -65,14 +66,50 @@
             placeholder="Description"
             id="profile-description-input"
           />
-          <button class="modal__button">Save</button>
+          <button class="modal__button">Create</button>
         </form>
+      </div>
+    </div>
+    <!-- Add Card Modal-->
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="card-button-close"></button>
+        <p class="modal__heading">New Place</p>
+        <form class="modal__form">
+          <input
+            class="modal__input modal__input_type_title"
+            type="text"
+            name="title"
+            placeholder="Title"
+            id="card-title-input"
+          />
+          <input
+            class="modal__input modal__input_type_link"
+            type="text"
+            name="link"
+            placeholder="Image link"
+            id="card-link-input"
+          />
+          <button class="modal__button">Create</button>
+        </form>
+      </div>
+    </div>
+    <!--Image Modal-->
+    <div class="modal" id="image-modal">
+      <div class="modal__image_container">
+        <button
+          class="modal__close modal__close_image"
+          id="image-modal-close-button"
+        ></button>
+        <img src="" alt="Preview Image" class="modal__image" />
+        <h2 class="modal__image-title"></h2>
       </div>
     </div>
 
     <template id="card-template">
       <li class="cards__card">
         <img src="" alt="" class="cards__image" />
+        <button class="cards__delete-button" type="button"></button>
         <div class="cards__description">
           <h2 class="cards__title"></h2>
           <button class="cards__like-button" type="button"></button>
