@@ -1,9 +1,8 @@
 .modal {
-    
     visibility: hidden;
     opacity: 0;
-    display:flex;
-    transition: visibility 0s 0.5s, opacity 0.5s ease;
+    display: flex;
+    transition: opacity 0.5s ease, visibility 0s 0.5s; 
     position: fixed;
     top: 0;
     left: 0;
@@ -17,19 +16,10 @@
 }
 
 .modal_opened {
-    transition: visibility 0s, opacity 0.5s linear;
-    display: flex;
     visibility: visible;
     opacity: 1;
-
+    transition: opacity 0.5s ease; 
 }
-
-.modal_closing {
-    opacity: 0;            
-    visibility: hidden;    
-    transition: opacity 0.5s linear, visibility 0s 0.5s; 
-}
-
 .modal__container {
     position: relative;
     padding: 36px;
@@ -97,8 +87,8 @@
 
 
 .modal__input::placeholder {
-    color: #C4C4C4; /* or any color you want for the placeholder */
-    opacity: 1;  /* Ensure the color is not transparent */
+    color: #C4C4C4; 
+    opacity: 1; 
 }
 
 .modal__input {
@@ -155,7 +145,7 @@
 
 @media screen and (max-width: 580px) {
     .modal__close {
-       left: calc(100% - 26px);
+       left: calc(100% - 37px);
        bottom: calc(100% + 19px);
        height: 26px;
        width: 26px;
@@ -163,6 +153,7 @@
     .modal__heading {
         margin-bottom: 75px;
         font-size: 18px;
+        line-height: 22px;
     }
     .modal__button {
         font-size: 14px;
