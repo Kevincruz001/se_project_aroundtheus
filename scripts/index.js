@@ -54,11 +54,7 @@ const modalImageEl = document.querySelector(".modal__image");
 const modalTitleEl = document.querySelector(".modal__image-title");
 
 function toggleModal(modal) {
-  if (modal.classList.contains("modal_opened")) {
-    modal.classList.remove("modal_opened");
-  } else {
-    modal.classList.add("modal_opened");
-  }
+  modal.classList.toggle("modal_opened");
 }
 
 function setImageModalContent(imageSrc, imageAlt, titleText) {
