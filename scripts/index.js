@@ -70,6 +70,17 @@ function setupModalToggle(openButton, closeButton, modal) {
   if (closeButton) {
     closeButton.addEventListener("click", () => toggleModal(modal));
   }
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      toggleModal(modal);
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("modal_opened")) {
+      toggleModal(modal);
+    }
+  });
 }
 
 function handleFormSubmission(form, callback) {
