@@ -1,15 +1,15 @@
 function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formEl.querySelector("#" + inputEl.id + "-error");
-  inputEl.classList.add(inputErrorClass); // Adds red border
+  inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
-  errorMessageEl.classList.add(errorClass); // Makes error message visible
+  errorMessageEl.classList.add(errorClass);
 }
 
 function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formEl.querySelector("#" + inputEl.id + "-error");
-  inputEl.classList.remove(inputErrorClass); // Removes red border
-  errorMessageEl.textContent = ""; // Clears the error message
-  errorMessageEl.classList.remove(errorClass); // Hides the error message
+  inputEl.classList.remove(inputErrorClass);
+  errorMessageEl.textContent = "";
+  errorMessageEl.classList.remove(errorClass);
 }
 
 function checkInputValidity(formEl, inputEl, options) {
@@ -19,6 +19,7 @@ function checkInputValidity(formEl, inputEl, options) {
     hideInputError(formEl, inputEl, options);
   }
 }
+
 function toggleButtonState(inputEls, buttonEl, inactiveButtonClass) {
   const hasInvalidInput = inputEls.some(
     (inputEl) => !inputEl.validity.valid || inputEl.value.trim() === ""
@@ -55,16 +56,6 @@ function enableValidation(options) {
     });
 
     setEventListeners(formEl, options);
-    //look for all inputs inside of form
-    //loop through each input to see if all are valid
-    //if input is not valid
-    //grab the validation message
-    //add the error class to the input
-    //display error message
-    //disable button
-    //if all inputs are valid
-    //enable button
-    //reset error messages
   });
 }
 

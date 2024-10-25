@@ -35,7 +35,7 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-const profileEditForm = profileEditModal.querySelector("#profile-edit-form");
+const profileEditForm = document.forms["profile-form"];
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -49,12 +49,26 @@ const imageModalCloseButton = document.querySelector(
   "#image-modal-close-button"
 );
 const imageModalContainer = document.querySelector(".modal__image_container");
-const cardModalForm = document.querySelector("#card-modal-form");
+const cardModalForm = document.forms["card-form"];
 const modalImageEl = document.querySelector(".modal__image");
 const modalTitleEl = document.querySelector(".modal__image-title");
 
 function toggleModal(modal) {
   modal.classList.toggle("modal_opened");
+  if (modal.classList.contains("modal_opened")) {
+    document.addEventListener("keydown", handleEscClose);
+  } else {
+    document.removeEventListener("keydown", handleEscClose);
+  }
+}
+
+function handleEscClose(event) {
+  if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    if (openModal) {
+      toggleModal(openModal);
+    }
+  }
 }
 
 function setImageModalContent(imageSrc, imageAlt, titleText) {
@@ -73,11 +87,6 @@ function setupModalToggle(openButton, closeButton, modal) {
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
-      toggleModal(modal);
-    }
-  });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && modal.classList.contains("modal_opened")) {
       toggleModal(modal);
     }
   });
