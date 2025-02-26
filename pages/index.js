@@ -1,5 +1,5 @@
-import Card from "../components/card.js";
-import FormValidator from "../components/validation.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -57,6 +57,24 @@ const imageModalCloseButton = document.querySelector(
 const modalImageEl = document.querySelector(".modal__image");
 const modalTitleEl = document.querySelector(".modal__image-title");
 
+const formValidators = {};
+
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    const formName = formElement.getAttribute("name");
+
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+function createCard(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  return card.getView();
+}
+
 function handleImageClick(name, link) {
   modalImageEl.src = link;
   modalImageEl.alt = name;
@@ -65,8 +83,8 @@ function handleImageClick(name, link) {
 }
 
 initialCards.forEach((cardData) => {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  cardListEl.prepend(card.getView());
+  const cardElement = createCard(cardData);
+  cardListEl.prepend(cardElement);
 });
 
 function toggleModal(modal) {
@@ -125,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
   handleFormSubmission(profileEditForm, () => {
     profileTitle.textContent = profileTitleInput.value;
     profileDescription.textContent = profileDescriptionInput.value;
-    editProfileFormValidator.resetValidation();
+    formValidators["profile-form"].resetValidation();
   });
 
   handleFormSubmission(cardModalForm, () => {
@@ -134,10 +152,10 @@ document.addEventListener("DOMContentLoaded", () => {
       link: cardLinkInput.value,
     };
 
-    const newCard = new Card(newCardData, "#card-template", handleImageClick);
-    cardListEl.prepend(newCard.getView());
+    const newCardElement = createCard(newCardData);
+    cardListEl.prepend(newCardElement);
     cardModalForm.reset();
-    addCardFormValidator.resetValidation();
+    formValidators["card-form"].resetValidation();
   });
 
   const validationConfig = {
@@ -149,15 +167,5 @@ document.addEventListener("DOMContentLoaded", () => {
     errorClass: "modal__error_visible",
   };
 
-  const editProfileFormValidator = new FormValidator(
-    validationConfig,
-    profileEditForm
-  );
-  const addCardFormValidator = new FormValidator(
-    validationConfig,
-    cardModalForm
-  );
-
-  editProfileFormValidator.enableValidation();
-  addCardFormValidator.enableValidation();
+  enableValidation(validationConfig);
 });
